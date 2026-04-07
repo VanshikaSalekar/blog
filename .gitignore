@@ -1,0 +1,44 @@
+# 1. Ignore everything in the root
+/*
+# Except the .gitignore file itself
+!.gitignore
+
+# 2. Ignore core folders entirely
+/wp-admin/
+/wp-includes/
+
+# 3. Ignore all sensitive configuration files
+/wp-config.php
+/.htaccess
+/sitemap.xml
+/sitemap.xml.gz
+*.log
+*.sql
+*.sqlite
+
+# 4. Handle the wp-content directory
+/wp-content/*
+# Ignore uploads and cache (huge files/environment specific)
+/wp-content/uploads/
+/wp-content/cache/
+/wp-content/upgrade/
+
+# 5. WHITELIST: Only track what you need
+# Allow the main wp-content folders
+!/wp-content/plugins/
+!/wp-content/themes/
+
+# Ignore all default plugins/themes (optional but recommended)
+/wp-content/plugins/hello.php
+/wp-content/themes/twenty*/
+
+# 6. EXPLICITLY TRACK YOUR CUSTOM WORK
+# Replace 'your-theme-name' and 'your-plugin-name' with your actual folder names
+# !/wp-content/themes/your-theme-name/
+# !/wp-content/plugins/your-plugin-name/
+
+# 7. Ignore OS and IDE specific files
+.DS_Store
+.idea/
+.vscode/
+**/node_modules/
