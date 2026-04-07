@@ -1,44 +1,31 @@
-# 1. Ignore everything in the root
-/*
-# Except the .gitignore file itself
-!.gitignore
-
-# 2. Ignore core folders entirely
+# 1. Ignore WordPress Core (These cause 90% of conflicts)
 /wp-admin/
 /wp-includes/
+/index.php
+/license.txt
+/readme.html
+/wp-*.php
+!/wp-config-sample.php
 
-# 3. Ignore all sensitive configuration files
-/wp-config.php
-/.htaccess
-/sitemap.xml
-/sitemap.xml.gz
+# 2. Ignore System & IDE files (Major source of local conflicts)
+.DS_Store
+.vscode/
+.idea/
 *.log
-*.sql
-*.sqlite
+Thumbs.db
 
-# 4. Handle the wp-content directory
-/wp-content/*
-# Ignore uploads and cache (huge files/environment specific)
-/wp-content/uploads/
-/wp-content/cache/
+# 3. Ignore Huge/Temporary Folders
 /wp-content/upgrade/
+/wp-content/cache/
+/wp-content/uploads/
 
-# 5. WHITELIST: Only track what you need
-# Allow the main wp-content folders
+# 4. TRACK PLUGINS AND THEMES (Keep these)
+# We ignore the folder first, then "un-ignore" the parts we want
+/wp-content/*
 !/wp-content/plugins/
 !/wp-content/themes/
+!/wp-content/languages/
 
-# Ignore all default plugins/themes (optional but recommended)
-/wp-content/plugins/hello.php
-/wp-content/themes/twenty*/
-
-# 6. EXPLICITLY TRACK YOUR CUSTOM WORK
-# Replace 'your-theme-name' and 'your-plugin-name' with your actual folder names
-# !/wp-content/themes/your-theme-name/
-# !/wp-content/plugins/your-plugin-name/
-
-# 7. Ignore OS and IDE specific files
-.DS_Store
-.idea/
-.vscode/
-**/node_modules/
+# 5. Security (Never push your actual config)
+wp-config.php
+.htaccess
