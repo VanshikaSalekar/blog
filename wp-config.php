@@ -23,13 +23,13 @@
 define( 'DB_NAME', 'MyStore' );
 
 /** Database username */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', 'MyStore_User' );
 
 /** Database password */
-define( 'DB_PASSWORD', '' );
+define( 'DB_PASSWORD', 'Mystore123!' );
 
 /** Database hostname */
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', 'localhost:3306' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
@@ -71,7 +71,7 @@ define( 'NONCE_SALT',       'Lq:!SXfc36J/adE@*i*S`BHx.5aS96Cl2r>iP+VWV[tOxmh:|I]
  *
  * @link https://developer.wordpress.org/advanced-administration/wordpress/wp-config/#table-prefix
  */
-$table_prefix = 'wp_';
+$table_prefix = 'ffcch_';
 
 /**
  * For developers: WordPress debugging mode.
@@ -89,7 +89,17 @@ define( 'WP_DEBUG', false );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
+define( 'WP_HOME', 'https://blog.mysharedspace.me' );
+define( 'WP_SITEURL', 'https://blog.mysharedspace.me' );
 
+/* Force SSL for Admin and Login */
+define( 'FORCE_SSL_ADMIN', true );
+
+/* Fix for SSL behind a proxy/Plesk */
+if (strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false) {
+    $_SERVER['HTTPS'] = 'on';
+}
+define( 'CONCATENATE_SCRIPTS', false );
 
 /* That's all, stop editing! Happy publishing. */
 
